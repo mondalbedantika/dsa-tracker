@@ -1,15 +1,3 @@
-import { Sidebar } from './Sidebar';
-import { Outlet } from 'react-router-dom';
-
-export const Layout = () => {
-  return (
-    <div className="min-h-screen bg-background text-on-background flex">
-      <Sidebar />
-      <main className="flex-1 ml-64 min-h-screen">
-        <div className="max-w-[1280px] mx-auto p-8">
-          <Outlet />
-        </div>
-      </main>
-    </div>
-  );
-};
+import { Outlet, useLocation } from 'react-router-dom'; import { Sidebar } from './Sidebar'; import { Bell, Plus } from 'lucide-react';
+const names:Record<string,string>={'/':'Overview','/problem-sets':'Tracks','/problems':'Problems','/revisions':'Revision','/notes':'Journal','/analytics':'Analytics','/achievements':'Achievements','/profile':'Profile','/settings':'Settings'};
+export const Layout=()=>{const l=useLocation();return <div className="app-shell"><Sidebar/><main><header className="topbar"><div className="crumb">My workspace <span>/</span> {names[l.pathname]||'Overview'}</div><div className="top-actions"><button className="icon-button"><Bell size={18}/></button><button className="primary-button"><Plus size={16}/> New problem</button></div></header><div className="page"><Outlet/></div></main></div>}

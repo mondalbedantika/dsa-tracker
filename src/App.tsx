@@ -8,6 +8,8 @@ import { RevisionQueue } from './pages/RevisionQueue';
 import { Notes } from './pages/Notes';
 import { Analytics } from './pages/Analytics';
 import { Achievements } from './pages/Achievements';
+import { ProfilePage } from './pages/Profile';
+import { SettingsPage } from './pages/Settings';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="notes" element={<Notes />} />
             <Route path="analytics" element={<Analytics />} />
             <Route path="achievements" element={<Achievements />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="settings" element={<SettingsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
